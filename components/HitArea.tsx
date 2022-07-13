@@ -165,7 +165,7 @@ export default function HitArea({ player }: CardProps) {
               <Text style={styles.textHalfHit}>HALF</Text>
             </Pressable>
             <Pressable style={styles.pressable} onPress={handleResetPlayerHit}>
-              <Text style={styles.textResetHit}>CLEAR</Text>
+              <Text style={styles.textResetHit}>CANCEL</Text>
             </Pressable>
           </View>
         </View>
@@ -215,7 +215,7 @@ const styles = StyleSheet.create({
     width: "100%",
     position: "relative",
     zIndex: 10,
-    backgroundColor: "rgba(33, 33, 33, 0.8)",
+    backgroundColor: "rgba(17, 17, 17, 0.8)",
     borderTopLeftRadius: 2,
     borderTopRightRadius: 2,
     borderBottomRightRadius: 14,

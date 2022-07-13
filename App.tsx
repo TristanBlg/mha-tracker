@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Platform, StyleSheet, View } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, View } from "react-native";
 
 import { HitProvider } from "./context/hit";
 import { LPProvider } from "./context/lifepoint";
@@ -9,9 +9,9 @@ import Home from "./views/Home";
 
 export default function App() {
   return (
-    <View style={styles.safeArea}>
-      <StatusBar style="light" />
+    <SafeAreaProvider>
       <SafeAreaView style={styles.safeArea}>
+        <StatusBar style="light" />
         <LPProvider>
           <HitProvider>
             <View style={styles.container}>
@@ -20,14 +20,14 @@ export default function App() {
           </HitProvider>
         </LPProvider>
       </SafeAreaView>
-    </View>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#212121",
+    backgroundColor: "#111111",
   },
   container: {
     flex: 1,

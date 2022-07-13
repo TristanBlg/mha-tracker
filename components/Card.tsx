@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import {
   StyleSheet,
   Pressable,
@@ -9,6 +8,7 @@ import {
 } from "react-native";
 
 import { useLPContext, PlayersUnion } from "../context/lifepoint";
+
 import HitArea from "./HitArea";
 
 interface CardProps {

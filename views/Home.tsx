@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 
 import player1bg from "../assets/player-background/player-1.jpg";
