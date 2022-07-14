@@ -28,7 +28,13 @@ export default function InfoModal({ isOpen, onCancel }: InfoModalProps) {
             <Text style={styles.title}>Legal</Text>
             <Text style={styles.text}>
               This app is unofficial Fan Content permitted under the Fan Content
-              Policy.<br />Not approved/endorsed by Jasco Games.<br />Portions of the
+              Policy.
+            </Text>
+            <Text style={styles.text}>
+              Not approved/endorsed by Jasco Games.
+            </Text>
+            <Text style={styles.text}>
+              Portions of the
               materials used are property of Jasco Games. ©JASCO GAMES LLC.
             </Text>
           </View>

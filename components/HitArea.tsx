@@ -13,7 +13,7 @@ import {
 
 import upPath from "../assets/hit-area/up.png";
 import middlePath from "../assets/hit-area/mid.png";
-import bottomPath from "../assets/hit-area/bottom.png";
+import bottomPath from "../assets/hit-area/down.png";
 import damagePath from "../assets/hit-area/damage.png";
 
 import { useHitContext, PlayersUnion, Area, HitItem } from "../context/hit";
@@ -77,7 +77,7 @@ export default function HitArea({ player }: CardProps) {
               >
                 <Text
                   style={[
-                    { transform: [{ translateX: -8 }] },
+                    { transform: [{ translateX: -7}, {translateY: -1 }] },
                     styles.textDamage,
                   ]}
                 >
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     color: "#FFE400",
     textShadowColor: '#C44A45',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 0,
+    textShadowRadius: 1,
     // textShadow:
     //   "#C44A45 1px 0px 0px, #C44A45 -1px 0px 0px,#C44A45 -1px 1px 0px,#C44A45 1px -1px 0px,#C44A45 1px 1px 0px, #C44A45 -1px -1px 0px, #C44A45 0px -1px 0px, #C44A45 0px 1px 0px, #000000 2px 2px 0px",
   },
@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     textShadowColor: '#C44A45',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 0,
+    textShadowRadius: 1,
     // textShadow:
     //   "#C44A45 1px 0px 0px, #C44A45 -1px 0px 0px,#C44A45 -1px 1px 0px,#C44A45 1px -1px 0px,#C44A45 1px 1px 0px, #C44A45 -1px -1px 0px, #C44A45 0px -1px 0px, #C44A45 0px 1px 0px, #000000 2px 2px 0px",
   },
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     textShadowColor: '#000000',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 0,
+    textShadowRadius: 1,
     // textShadow:
     //   "#000000 1px 0px 0px, #000000 -1px 0px 0px,#000000 -1px 1px 0px,#000000 1px -1px 0px,#000000 1px 1px 0px, #000000 -1px -1px 0px, #000000 0px -1px 0px, #000000 0px 1px 0px, #000000 2px 2px 0px",
   },
@@ -307,8 +307,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#ffffff",
     textShadowColor: '#000000',
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 4,
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 1,
     // textShadow:
     //   "#C44A45 1px 0px 0px, #C44A45 -1px 0px 0px,#C44A45 -1px 1px 0px,#C44A45 1px -1px 0px,#C44A45 1px 1px 0px, #C44A45 -1px -1px 0px, #C44A45 0px -1px 0px, #C44A45 0px 1px 0px, #000000 2px 2px 0px",
   },
