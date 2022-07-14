@@ -15,7 +15,10 @@ export type Hit = Record<PlayersUnion, HitItem>;
 
 export type HitContextType = {
   hit: Hit;
-  handleUpdatePlayerHit: (player: PlayersUnion, hitValues: Partial<HitItem>) => void;
+  handleUpdatePlayerHit: (
+    player: PlayersUnion,
+    hitValues: Partial<HitItem>
+  ) => void;
   handleResetHit: (player?: PlayersUnion) => void;
   handleSubmitPlayerHit: (player: PlayersUnion, damage: number) => void;
 };
@@ -36,9 +39,14 @@ export const HitProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const [hit, setHit] = useState<Hit>(INITIAL_PLAYER_HIT);
   const { setHistory } = useLPContext();
 
-  const handleUpdatePlayerHit = (player: PlayersUnion, hitValues: Partial<HitItem>) => {
-    
-    setHit((prev) => ({ ...prev, [player]: { ...prev[player], ...hitValues } }));
+  const handleUpdatePlayerHit = (
+    player: PlayersUnion,
+    hitValues: Partial<HitItem>
+  ) => {
+    setHit((prev) => ({
+      ...prev,
+      [player]: { ...prev[player], ...hitValues },
+    }));
   };
   const handleResetHit = (player?: PlayersUnion) => {
     if (player) {
@@ -50,7 +58,7 @@ export const HitProvider = ({ children }: React.PropsWithChildren<{}>) => {
   const handleSubmitPlayerHit = (player: PlayersUnion, damage: number) => {
     setHistory((prev) => {
       const lastItem = prev[prev.length - 1];
-      const p = player === PLAYERS.player1 ? PLAYERS.player2 : PLAYERS.player1
+      const p = player === PLAYERS.player1 ? PLAYERS.player2 : PLAYERS.player1;
 
       return [...prev, { ...lastItem, [p]: lastItem[p] - damage }];
     });

@@ -19,36 +19,59 @@ type ResetModalProps = {
   onCancel: () => void;
 };
 
-export default function HistoryModal({
-  isOpen,
-  onCancel,
-}: ResetModalProps) {
+export default function HistoryModal({ isOpen, onCancel }: ResetModalProps) {
   const { history } = useLPContext();
 
   const renderItem = ({
     item: { player1, player2 },
+    index,
   }: {
     item: HistoryItem;
-  }) => (
-    <View style={styles.itemContainer}>
-      <ImageBackground
-        source={player1bg}
-        resizeMode="cover"
-        imageStyle={styles.itemImage}
-        style={[{ marginRight: 10 }, styles.item]}
-      >
-        <Text style={styles.text}>{player1}</Text>
-      </ImageBackground>
-      <ImageBackground
-        source={player2bg}
-        resizeMode="cover"
-        imageStyle={styles.itemImage}
-        style={styles.item}
-      >
-        <Text style={styles.text}>{player2}</Text>
-      </ImageBackground>
-    </View>
-  );
+    index: number;
+  }) => {
+    const renderFirstPlayerItem = () => {
+      if (index > 0 && history[index - 1].player1 === player1) {
+        return (
+          <View
+            style={[{ marginRight: 10 }, styles.item, styles.disabledItem]}
+          />
+        );
+      } else {
+        return (
+          <ImageBackground
+            source={player1bg}
+            resizeMode="cover"
+            imageStyle={styles.itemImage}
+            style={[{ marginRight: 10 }, styles.item]}
+          >
+            <Text style={styles.text}>{player1}</Text>
+          </ImageBackground>
+        );
+      }
+    };
+    const renderSecondPlayerItem = () => {
+      if (index > 0 && history[index - 1].player2 === player2) {
+        return <View style={[styles.item, styles.disabledItem]} />;
+      } else {
+        return (
+          <ImageBackground
+            source={player2bg}
+            resizeMode="cover"
+            imageStyle={styles.itemImage}
+            style={styles.item}
+          >
+            <Text style={styles.text}>{player2}</Text>
+          </ImageBackground>
+        );
+      }
+    };
+    return (
+      <View style={styles.itemContainer}>
+        {renderFirstPlayerItem()}
+        {renderSecondPlayerItem()}
+      </View>
+    );
+  };
 
   return (
     <Modal
@@ -93,6 +116,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 14,
     overflow: "hidden",
+  },
+  disabledItem: {
+    backgroundColor: "rgba(65, 65, 65, 0.7)",
   },
   itemImage: {
     opacity: 0.7,
