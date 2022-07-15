@@ -1,3 +1,4 @@
+import { useKeepAwake } from "expo-keep-awake";
 import { StyleSheet, View } from "react-native";
 
 import player1bg from "../assets/player-background/player-1.jpg";
@@ -8,6 +9,8 @@ import Card from "../components/Card";
 import { PLAYERS } from "../context/lifepoint";
 
 export default function Home() {
+  useKeepAwake();
+
   return (
     <View style={styles.container}>
       <Card
