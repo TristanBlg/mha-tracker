@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -165,7 +164,7 @@ export default function HitArea({ player }: CardProps) {
               <Text style={styles.textHalfHit}>HALF</Text>
             </Pressable>
             <Pressable style={styles.pressable} onPress={handleResetPlayerHit}>
-              <Text style={styles.textResetHit}>CANCEL</Text>
+              <Text style={styles.textResetHit}>BLOCKED</Text>
             </Pressable>
           </View>
         </View>
@@ -214,6 +213,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     position: "relative",
+    overflow: "hidden",
     zIndex: 10,
     backgroundColor: "rgba(17, 17, 17, 0.8)",
     borderTopLeftRadius: 2,
@@ -272,9 +272,7 @@ const styles = StyleSheet.create({
     color: "#FFE400",
     textShadowColor: '#C44A45',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 1,
-    // textShadow:
-    //   "#C44A45 1px 0px 0px, #C44A45 -1px 0px 0px,#C44A45 -1px 1px 0px,#C44A45 1px -1px 0px,#C44A45 1px 1px 0px, #C44A45 -1px -1px 0px, #C44A45 0px -1px 0px, #C44A45 0px 1px 0px, #000000 2px 2px 0px",
+    textShadowRadius: 1
   },
   textHalfHit: {
     // fontFamily: "Arial",
@@ -284,9 +282,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     textShadowColor: '#C44A45',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 1,
-    // textShadow:
-    //   "#C44A45 1px 0px 0px, #C44A45 -1px 0px 0px,#C44A45 -1px 1px 0px,#C44A45 1px -1px 0px,#C44A45 1px 1px 0px, #C44A45 -1px -1px 0px, #C44A45 0px -1px 0px, #C44A45 0px 1px 0px, #000000 2px 2px 0px",
+    textShadowRadius: 1
   },
   textResetHit: {
     // fontFamily: "Arial",
@@ -296,9 +292,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     textShadowColor: '#000000',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 1,
-    // textShadow:
-    //   "#000000 1px 0px 0px, #000000 -1px 0px 0px,#000000 -1px 1px 0px,#000000 1px -1px 0px,#000000 1px 1px 0px, #000000 -1px -1px 0px, #000000 0px -1px 0px, #000000 0px 1px 0px, #000000 2px 2px 0px",
+    textShadowRadius: 1
   },
   textDamage: {
     // fontFamily: "Arial",
@@ -308,9 +302,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     textShadowColor: '#000000',
     textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 1,
-    // textShadow:
-    //   "#C44A45 1px 0px 0px, #C44A45 -1px 0px 0px,#C44A45 -1px 1px 0px,#C44A45 1px -1px 0px,#C44A45 1px 1px 0px, #C44A45 -1px -1px 0px, #C44A45 0px -1px 0px, #C44A45 0px 1px 0px, #000000 2px 2px 0px",
+    textShadowRadius: 1
   },
   clickableZone: {
     flex: 1,

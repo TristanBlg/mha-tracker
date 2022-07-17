@@ -3,8 +3,9 @@
     "name": "UniVersus Tracker",
     "slug": "mha-tracker",
     "owner": "tristanblg",
-    "version": "1.1.1",
+    "version": "1.2.1",
     "orientation": "portrait",
+    "backgroundColor": "#111111",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "splash": {
@@ -18,7 +19,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "buildNumber": "1.1.1"
+      "buildNumber": "1.2.1"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,7 +27,8 @@
         "backgroundColor": "#111111"
       },
       "package": "com.xxx.mha_tracker",
-      "versionCode": 3
+      "versionCode": 4,
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"

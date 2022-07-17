@@ -7,6 +7,7 @@ import { Entypo } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import { useLPContext } from "../context/lifepoint";
+import { useHitContext } from "../context/hit";
 
 import ResetModal from "./ResetModal";
 import InfoModal from "./InfoModal";
@@ -18,6 +19,7 @@ export default function ActionBar() {
   const [time, setTime] = useState(0);
   const [timeState, setTimeState] = useState(false);
   const { handleUndo, handleReset } = useLPContext();
+  const { handleResetHit } = useHitContext();
   const [historyModalVisible, setHistoryVisible] = useState(false);
   const [resetModalVisible, setResetModalVisible] = useState(false);
   const [infoModalVisible, setInfoModalVisible] = useState(false);
@@ -52,6 +54,7 @@ export default function ActionBar() {
 
   const handleSubmitReset = () => {
     setTimeState(false);
+    handleResetHit();
     setTime(0);
     handleReset();
     setResetModalVisible(!resetModalVisible);

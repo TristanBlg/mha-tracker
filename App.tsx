@@ -1,11 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, View } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
 
 import { HitProvider } from "./context/hit";
 import { LPProvider } from "./context/lifepoint";
 
 import Home from "./views/Home";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   return (

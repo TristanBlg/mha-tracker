@@ -17,8 +17,8 @@ export default function InfoModal({ isOpen, onCancel }: InfoModalProps) {
       <View style={styles.container}>
         <View style={styles.main}>
           <View style={styles.section}>
-            <Text style={styles.title}>Get In Touch</Text>
-            <Text style={styles.text}>xxx@gmail.com</Text>
+            <Text style={styles.title}>Submit Feedback</Text>
+            <Text style={styles.text}>jeu.tristanboulanger@gmail.com</Text>
           </View>
           <View style={styles.section}>
             <Text style={styles.title}>Version</Text>

@@ -5,12 +5,8 @@ import {
   Pressable,
   Modal,
   FlatList,
-  ImageBackground,
 } from "react-native";
 import { Fontisto } from "@expo/vector-icons";
-
-import player1bg from "../assets/player-background/player-1.jpg";
-import player2bg from "../assets/player-background/player-2.jpg";
 
 import { HistoryItem, useLPContext } from "../context/lifepoint";
 
@@ -38,14 +34,11 @@ export default function HistoryModal({ isOpen, onCancel }: ResetModalProps) {
         );
       } else {
         return (
-          <ImageBackground
-            source={player1bg}
-            resizeMode="cover"
-            imageStyle={styles.itemImage}
-            style={[{ marginRight: 10 }, styles.item]}
+          <View
+            style={[{ backgroundColor: '#36b3a6', marginRight: 10 }, styles.item]}
           >
             <Text style={styles.text}>{player1}</Text>
-          </ImageBackground>
+          </View>
         );
       }
     };
@@ -54,14 +47,11 @@ export default function HistoryModal({ isOpen, onCancel }: ResetModalProps) {
         return <View style={[styles.item, styles.disabledItem]} />;
       } else {
         return (
-          <ImageBackground
-            source={player2bg}
-            resizeMode="cover"
-            imageStyle={styles.itemImage}
-            style={styles.item}
+          <View
+            style={[{ backgroundColor: '#d75238' }, styles.item]}
           >
             <Text style={styles.text}>{player2}</Text>
-          </ImageBackground>
+          </View>
         );
       }
     };
@@ -119,9 +109,6 @@ const styles = StyleSheet.create({
   },
   disabledItem: {
     backgroundColor: "rgba(65, 65, 65, 0.7)",
-  },
-  itemImage: {
-    opacity: 0.7,
   },
   text: {
     fontStyle: "normal",

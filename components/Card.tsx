@@ -1,7 +1,6 @@
 import {
   StyleSheet,
   Pressable,
-  ImageBackground,
   Text,
   View,
   ViewStyle,
@@ -13,10 +12,9 @@ import HitArea from "./HitArea";
 
 interface CardProps {
   player: PlayersUnion;
-  image: { uri: string };
   style?: ViewStyle;
 }
-export default function Card({ image, style, player }: CardProps) {
+export default function Card({ style, player }: CardProps) {
   const { history, setHistory } = useLPContext();
 
   const lastHistoryItem = history[history.length - 1];
@@ -28,15 +26,10 @@ export default function Card({ image, style, player }: CardProps) {
       return [...prev, { ...lastItem, [player]: newLp }];
     });
   };
-  
+
   return (
     <View style={[styles.container, style]}>
-      <ImageBackground
-        source={image}
-        resizeMode="cover"
-        imageStyle={styles.image}
-        style={styles.imageBackground}
-      >
+      <View style={styles.wrapper}>
         <Pressable
           onPress={() => {
             handleLp(lp - 1);
@@ -71,7 +64,7 @@ export default function Card({ image, style, player }: CardProps) {
         <View />
         <Text style={styles.textCount}>{lp}</Text>
         <HitArea player={player} />
-      </ImageBackground>
+      </View>
     </View>
   );
 }
@@ -83,15 +76,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     overflow: "hidden",
   },
-  imageBackground: {
+  wrapper: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-between",
-    alignItems: 'center',
+    alignItems: "center",
     padding: 10,
-  },
-  image: {
-    opacity: 0.7,
   },
   textCount: {
     // fontFamily: "Arial",
@@ -99,7 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     fontSize: 120,
     color: "#FFFFFF",
-    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowColor: "rgba(0, 0, 0, 0.8)",
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 10,
   },
